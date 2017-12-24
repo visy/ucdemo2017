@@ -57,12 +57,35 @@
   z-index: -1;
   width: 100%;
   height: 100%;
-    background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iNjAiIGhlaWdodD0iMzAiPgo8ZGVmcz4KPHJlY3QgaWQ9InIiIHdpZHRoPSIzMCIgaGVpZ2h0PSIxNSIgZmlsbD0iI2JiMDg1ZiIgc3Ryb2tlLXdpZHRoPSIyLjUiIHN0cm9rZT0iIzdhMDU0ZCI+PC9yZWN0Pgo8ZyBpZD0icCI+Cjx1c2UgeGxpbms6aHJlZj0iI3IiPjwvdXNlPgo8dXNlIHk9IjE1IiB4bGluazpocmVmPSIjciI+PC91c2U+Cjx1c2UgeT0iMzAiIHhsaW5rOmhyZWY9IiNyIj48L3VzZT4KPHVzZSB5PSI0NSIgeGxpbms6aHJlZj0iI3IiPjwvdXNlPgo8L2c+CjwvZGVmcz4KPHVzZSB4bGluazpocmVmPSIjcCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAtMjUpIHNrZXdZKDQwKSI+PC91c2U+Cjx1c2UgeGxpbms6aHJlZj0iI3AiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMwIDApIHNrZXdZKC00MCkiPjwvdXNlPgo8L3N2Zz4=");
   content: "";
-  filter: url("data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%3E%3Cdefs%3E%3Cfilter%20id%3D%22blur%22%3E%3CfeGaussianBlur%20stdDeviation%3D%225%22%2F%3E%3C%2Ffilter%3E%3C%2Fdefs%3E%3C%2Fsvg%3E#blur");
-  -webkit-filter: blur(3px);
-  filter: blur(3px);
 }
+
+.page:nth-of-type(odd) {
+background: 
+radial-gradient(circle at 50% 59%, #D2CAAB 3%, #364E27 4%, #364E27 11%, rgba(54,78,39,0) 12%, rgba(54,78,39,0)) 50px 0,
+radial-gradient(circle at 50% 41%, #364E27 3%, #D2CAAB 4%, #D2CAAB 11%, rgba(210,202,171,0) 12%, rgba(210,202,171,0)) 50px 0,
+radial-gradient(circle at 50% 59%, #D2CAAB 3%, #364E27 4%, #364E27 11%, rgba(54,78,39,0) 12%, rgba(54,78,39,0)) 0 50px,
+radial-gradient(circle at 50% 41%, #364E27 3%, #D2CAAB 4%, #D2CAAB 11%, rgba(210,202,171,0) 12%, rgba(210,202,171,0)) 0 50px,
+radial-gradient(circle at 100% 50%, #D2CAAB 16%, rgba(210,202,171,0) 17%),
+radial-gradient(circle at 0% 50%, #364E27 16%, rgba(54,78,39,0) 17%),
+radial-gradient(circle at 100% 50%, #D2CAAB 16%, rgba(210,202,171,0) 17%) 50px 50px,
+radial-gradient(circle at 0% 50%, #364E27 16%, rgba(54,78,39,0) 17%) 50px 50px;
+background-color:#63773F;
+background-size:100px 100px;
+  background-blend-mode: screen;
+}
+
+.page:nth-of-type(even) {
+background:
+linear-gradient(45deg, #92baac 45px, transparent 45px)64px 64px,
+linear-gradient(45deg, #92baac 45px, transparent 45px,transparent 91px, #e1ebbd 91px, #e1ebbd 135px, transparent 135px),
+linear-gradient(-45deg, #92baac 23px, transparent 23px, transparent 68px,#92baac 68px,#92baac 113px,transparent 113px,transparent 158px,#92baac 158px);
+background-color:#e1ebbd;
+background-size: 128px 128px;
+background-blend-mode: screen;
+}
+
+
   .background {
     background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iNjAiIGhlaWdodD0iMzAiPgo8ZGVmcz4KPHJlY3QgaWQ9InIiIHdpZHRoPSIzMCIgaGVpZ2h0PSIxNSIgZmlsbD0iI2JiMDg1ZiIgc3Ryb2tlLXdpZHRoPSIyLjUiIHN0cm9rZT0iIzdhMDU0ZCI+PC9yZWN0Pgo8ZyBpZD0icCI+Cjx1c2UgeGxpbms6aHJlZj0iI3IiPjwvdXNlPgo8dXNlIHk9IjE1IiB4bGluazpocmVmPSIjciI+PC91c2U+Cjx1c2UgeT0iMzAiIHhsaW5rOmhyZWY9IiNyIj48L3VzZT4KPHVzZSB5PSI0NSIgeGxpbms6aHJlZj0iI3IiPjwvdXNlPgo8L2c+CjwvZGVmcz4KPHVzZSB4bGluazpocmVmPSIjcCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAtMjUpIHNrZXdZKDQwKSI+PC91c2U+Cjx1c2UgeGxpbms6aHJlZj0iI3AiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMwIDApIHNrZXdZKC00MCkiPjwvdXNlPgo8L3N2Zz4=");
     width: 100%;
@@ -110,6 +133,7 @@
 
   .page {
     opacity: 0.0;
+    visibility: hidden;
     position: absolute;
     top: 50%; left: 50%;
   }
@@ -121,6 +145,21 @@
   animation-delay: 10s;
   }
 
+
+  timeliner:hover {
+    opacity:1.0;
+    transition: opacity .2s ease-out;
+    -moz-transition: opacity .2s ease-out;
+    -webkit-transition: opacity .2s ease-out;
+    -o-transition: opacity .2s ease-out;
+  }
+  timeliner {
+    opacity:0.5;
+    transition: opacity .2s ease-out;
+    -moz-transition: opacity .2s ease-out;
+    -webkit-transition: opacity .2s ease-out;
+    -o-transition: opacity .2s ease-out;
+  }
 
 </style>
 </head>
@@ -153,12 +192,13 @@
   timeliner.addLayer('x');
   timeliner.addLayer('y');
 */
-  timeliner.load({"version":"1.5.0","modified":"Sun Dec 24 2017 14:19:24 GMT+0100 (CET)","title":"Untitled","ui":{"currentTime":0,"totalTime":20,"scrollTime":0,"timeScale":60},"layers":[{"name":"opacity","values":[{"time":1.4,"value":0,"_color":"#83a477","tween":"linear"},{"time":6.7,"value":1,"_color":"#c86e4d"}],"_value":0,"_color":"#91a65a"},{"name":"index","values":[],"_value":0,"_color":"#2563ab"},{"name":"rotate","values":[{"time":0,"value":35,"_color":"#141fa9","tween":"quadEaseInOut"},{"time":7.7,"value":710,"_color":"#e7d7ed","tween":"quadEaseIn"},{"time":10.8,"value":700,"_color":"#b203bb"}],"_value":35,"_color":"#19c13b"},{"name":"x","values":[{"time":0,"value":20,"_color":"#581b3c","tween":"quadEaseInOut"},{"time":12,"value":50,"_color":"#14840a"}],"_value":20,"_color":"#3c33de"},{"name":"y","values":[{"time":0,"value":35,"_color":"#676b8e","tween":"quadEaseInOut"},{"time":5.9,"value":50,"_color":"#6afeba"}],"_value":35,"_color":"#cfaef0"}],"name":"demowork"});
+  timeliner.load({"version":"1.5.0","modified":"Sun Dec 24 2017 14:19:24 GMT+0100 (CET)","title":"Untitled","ui":{"currentTime":0,"totalTime":40,"scrollTime":0,"timeScale":60},"layers":[{"name":"opacity","values":[{"time":1.4,"value":0,"_color":"#83a477","tween":"linear"},{"time":6.7,"value":1,"_color":"#c86e4d"},{"time":7.9,"value":1,"_color":"#51af9","tween":"linear"},{"time":10.9,"value":0,"_color":"#1e5fe"},{"time":12.4,"value":0,"_color":"#df4166","tween":"linear"},{"time":14.3,"value":1,"_color":"#65c7b9"},{"time":18.9,"value":1,"_color":"#4c9e7f","tween":"linear"},{"time":20.2,"value":0,"_color":"#a18ce"}],"_value":0,"_color":"#91a65a"},{"name":"index","values":[{"time":0,"value":0,"_color":"#3ccbbc"},{"time":12.3,"value":1,"_color":"#72bf5a"}],"_value":0,"_color":"#2563ab"},{"name":"rotate","values":[{"time":0,"value":35,"_color":"#141fa9","tween":"quadEaseInOut"},{"time":7.7,"value":710,"_color":"#e7d7ed","tween":"quadEaseIn"},{"time":10.8,"value":700,"_color":"#b203bb"},{"time":12.3,"value":0,"_color":"#b4984b"}],"_value":35,"_color":"#19c13b"},{"name":"x","values":[{"time":0,"value":20,"_color":"#581b3c","tween":"quadEaseInOut"},{"time":12,"value":50,"_color":"#14840a"}],"_value":20,"_color":"#3c33de"},{"name":"y","values":[{"time":0,"value":35,"_color":"#676b8e","tween":"quadEaseInOut"},{"time":5.9,"value":50,"_color":"#6afeba"}],"_value":35,"_color":"#cfaef0"},{"name":null,"values":[],"_value":0,"_color":"#8d6b28"},{"name":"scale","values":[{"time":0,"value":1.2,"_color":"#c4b445"},{"time":12.1,"value":1,"_color":"#9ae5b3","tween":"linear"},{"time":17.9,"value":1.5,"_color":"#9d75e1"},{"time":18,"value":1.5,"_color":"#fb67b4","tween":"quadEaseInOut"},{"time":20,"value":0,"_color":"#2bacfc"}],"_value":1.2,"_color":"#64c08a"}],"name":"demowork"});
 
   function audioinit() {
     if (window.audioInit) return;
     console.log("audio inited");
     window.audioInit = true;
+    timeliner.play(); // for demomode
   }
 
   function init() {
@@ -194,10 +234,12 @@
 
   function style(element, target) {
     element.style.opacity = target.opacity;
-    console.log("rotation:" + target.rotate);
+    if (target.opacity <= 0.0) element.style.visibility = "hidden";
+    else element.style.visibility = "visible";
+
     element.style.left = target.x + "%";
     element.style.top = target.y + "%";
-    element.style.transform = "rotate(" + (target.rotate) + "deg)"; 
+    element.style.transform = "rotate(" + (target.rotate) + "deg) scale( " + target.scale + ")"; 
   } 
 
   function animate() {
@@ -214,30 +256,31 @@
 
 
 </script>
-<div class = "page" id="page1">
+<div class = "page" id="page1" contenteditable="true">
   <div class="wrapper">
-    <div class="svg-wrapper"><svg><text class="upper sans">You have to</text></svg></div>
-      <div class="svg-wrapper"><svg><text class="upper sans bold">no</text></svg></div>
-      <div class="svg-wrapper"><svg><text class="upper sans">to a lot of</text></svg></div>
-      <div class="svg-wrapper"><svg><text class="upper serif">good things</text></svg></div>
-      <div class="svg-wrapper"><svg><text class="upper sans">in order to be able to</text></svg></div>
-      <div class="svg-wrapper"><svg><text class="upper sans bold">say yes</text></svg></div>
-      <div class="svg-wrapper"><svg><text class="upper sans">to a lot of</text></svg></div>
-      <div class="svg-wrapper"><svg><text class="upper serif">great things</text></svg></div>
-  </div>
+      <div class="svg-wrapper"><svg><text class="upper sans">PROGRAMME<br></text></svg></div>
+      <div class="svg-wrapper"><svg><text class="upper sans bold">TONIGHT<br><br></text></svg></div>
+      <div class="svg-wrapper"><svg><text class="upper sans">IT WILL ALL&nbsp; <br></text></svg></div>
+      <div class="svg-wrapper"><svg><text class="upper serif">COME&nbsp; TOGETHER<br></text></svg></div>
+      <div class="svg-wrapper"><svg><text class="upper sans">and&nbsp; only&nbsp; for&nbsp; tonight<br></text></svg></div>
+      <div class="svg-wrapper"><svg><text class="upper sans bold">it will<br></text></svg></div>
+      <div class="svg-wrapper"><svg><text class="upper sans">be this&nbsp; good <br></text></svg></div>
+      <div class="svg-wrapper"><svg><Text class="upper serif">for&nbsp; yourself<br></text></svg></div>
+    </div>
 </div>
 
-<div class = "page" id="page2">
+<div class = "page" id="page2" contenteditable="true">
   <div class="wrapper">
-    <div class="svg-wrapper"><svg><text class="upper sans">You have to</text></svg></div>
-      <div class="svg-wrapper"><svg><text class="upper sans bold">say YES</text></svg></div>
-      <div class="svg-wrapper"><svg><text class="upper sans">to the dress</text></svg></div>
-      <div class="svg-wrapper"><svg><text class="upper serif">and say</text></svg></div>
-      <div class="svg-wrapper"><svg><text class="upper sans">negative things about</text></svg></div>
-      <div class="svg-wrapper"><svg><text class="upper sans bold">haters</text></svg></div>
-      <div class="svg-wrapper"><svg><text class="upper sans">for their own</text></svg></div>
-      <div class="svg-wrapper"><svg><text class="upper serif">benefit.</text></svg></div>
-  </div>
+
+      <div class="svg-wrapper"><svg><text class="upper sans">ONE LIFE <br></text></svg></div>
+      <div class="svg-wrapper"><svg><text class="upper sans bold">ONE NIGHT<br></text></svg></div>
+      <div class="svg-wrapper"><svg><text class="upper sans">IT'S YOUR CHANCE<br></text></svg></div>
+      <div class="svg-wrapper"><svg><text class="upper serif">TO REACH</text></svg></div>
+      <div class="svg-wrapper"><svg><text class="upper sans">A&nbsp; NEW BEGINNING<br></text></svg></div>
+      <div class="svg-wrapper"><svg><text class="upper sans bold">TODAY<br></text></svg></div>
+      <div class="svg-wrapper"><svg><text class="upper sans">FOR THE REST OF <br></text></svg></div>
+      <div class="svg-wrapper"><svg><text class="upper serif">ETERNITY.</text></svg></div>
+    </div>
 </div>
 
 <audio id = "audio">

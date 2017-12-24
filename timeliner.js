@@ -546,6 +546,8 @@ document.getElementById("audio").currentTime = value; seek = true; }
 
 	this.openLocalSave = open;
 
+	this.play = startPlaying;
+
 	dispatcher.on('import', function() {
 		promptImport();
 	}.bind(this));
