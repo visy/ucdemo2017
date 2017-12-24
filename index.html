@@ -1,0 +1,253 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<script src = "jquery.min.js"></script>
+<script src = "timeliner.js"></script>
+
+<style>
+  body {
+    background-color: black;
+  }
+  .svg-wrapper {
+    height: 0;
+    width: 100%;
+    padding-top: 50px;
+    position: relative;
+  }
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    max-height: 100%;
+  }
+  svg text {
+    text-shadow: 1px 1px 1px black;
+    fill: #eee;
+  }
+  svg .sans {
+    font-family: 'Raleway';
+    font-weight: 200;
+  }
+  svg .serif {
+    font-family: 'Playfair Display SC';
+    font-weight: 700;
+  }
+  svg .bold {
+    font-weight: 900;
+  }
+  svg .upper {
+    text-transform: uppercase;
+  }
+  .wrapper {
+    background: inherit;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);  
+    margin: auto auto;
+    width: 300px;
+    border: 8px solid #222;
+    padding: 20px;
+  }
+.wrapper::before {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+    background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iNjAiIGhlaWdodD0iMzAiPgo8ZGVmcz4KPHJlY3QgaWQ9InIiIHdpZHRoPSIzMCIgaGVpZ2h0PSIxNSIgZmlsbD0iI2JiMDg1ZiIgc3Ryb2tlLXdpZHRoPSIyLjUiIHN0cm9rZT0iIzdhMDU0ZCI+PC9yZWN0Pgo8ZyBpZD0icCI+Cjx1c2UgeGxpbms6aHJlZj0iI3IiPjwvdXNlPgo8dXNlIHk9IjE1IiB4bGluazpocmVmPSIjciI+PC91c2U+Cjx1c2UgeT0iMzAiIHhsaW5rOmhyZWY9IiNyIj48L3VzZT4KPHVzZSB5PSI0NSIgeGxpbms6aHJlZj0iI3IiPjwvdXNlPgo8L2c+CjwvZGVmcz4KPHVzZSB4bGluazpocmVmPSIjcCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAtMjUpIHNrZXdZKDQwKSI+PC91c2U+Cjx1c2UgeGxpbms6aHJlZj0iI3AiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMwIDApIHNrZXdZKC00MCkiPjwvdXNlPgo8L3N2Zz4=");
+  content: "";
+  filter: url("data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%3E%3Cdefs%3E%3Cfilter%20id%3D%22blur%22%3E%3CfeGaussianBlur%20stdDeviation%3D%225%22%2F%3E%3C%2Ffilter%3E%3C%2Fdefs%3E%3C%2Fsvg%3E#blur");
+  -webkit-filter: blur(3px);
+  filter: blur(3px);
+}
+  .background {
+    background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iNjAiIGhlaWdodD0iMzAiPgo8ZGVmcz4KPHJlY3QgaWQ9InIiIHdpZHRoPSIzMCIgaGVpZ2h0PSIxNSIgZmlsbD0iI2JiMDg1ZiIgc3Ryb2tlLXdpZHRoPSIyLjUiIHN0cm9rZT0iIzdhMDU0ZCI+PC9yZWN0Pgo8ZyBpZD0icCI+Cjx1c2UgeGxpbms6aHJlZj0iI3IiPjwvdXNlPgo8dXNlIHk9IjE1IiB4bGluazpocmVmPSIjciI+PC91c2U+Cjx1c2UgeT0iMzAiIHhsaW5rOmhyZWY9IiNyIj48L3VzZT4KPHVzZSB5PSI0NSIgeGxpbms6aHJlZj0iI3IiPjwvdXNlPgo8L2c+CjwvZGVmcz4KPHVzZSB4bGluazpocmVmPSIjcCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAtMjUpIHNrZXdZKDQwKSI+PC91c2U+Cjx1c2UgeGxpbms6aHJlZj0iI3AiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMwIDApIHNrZXdZKC00MCkiPjwvdXNlPgo8L3N2Zz4=");
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+  }
+
+  @keyframes fadein {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+
+  .cover {
+    animation-name: fadein;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-duration: 0.1s;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left:0;
+    top:0;
+  }
+
+  @keyframes fadeinout {
+    0% {
+      opacity:0;
+    }
+    35% {
+      opacity:1;
+    }
+    65% {
+      opacity:1;
+    }
+    100% {
+      opacity:0;
+    }
+  }
+
+  .page {
+    opacity: 0.0;
+    position: absolute;
+    top: 50%; left: 50%;
+  }
+
+  .page:nth-of-type(1) {
+  animation-delay: 5s;
+  }
+  .page:nth-of-type(2) {
+  animation-delay: 10s;
+  }
+
+
+</style>
+</head>
+
+<body>
+<div class = "cover">
+<div class = "background">
+
+<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,700|Raleway:400,100,200,300,500,600,700,800,900|Playfair+Display+SC:400italic,700italic,400,700,900" rel="stylesheet" type="text/css">
+
+<script>
+  var textarray = [];
+  var pages = []
+  var textInited = false;
+
+  var anim = {
+    opacity: 1.0,
+    index: 0,
+    rotate: 0,
+    x: 50,
+    y: 50
+  };
+
+  // initialize timeliner
+  var timeliner = new Timeliner(anim);
+/*
+  timeliner.addLayer('opacity');
+  timeliner.addLayer('index');
+  timeliner.addLayer('rotate');
+  timeliner.addLayer('x');
+  timeliner.addLayer('y');
+*/
+  timeliner.load({"version":"1.5.0","modified":"Sun Dec 24 2017 14:19:24 GMT+0100 (CET)","title":"Untitled","ui":{"currentTime":0,"totalTime":20,"scrollTime":0,"timeScale":60},"layers":[{"name":"opacity","values":[{"time":1.4,"value":0,"_color":"#83a477","tween":"linear"},{"time":6.7,"value":1,"_color":"#c86e4d"}],"_value":0,"_color":"#91a65a"},{"name":"index","values":[],"_value":0,"_color":"#2563ab"},{"name":"rotate","values":[{"time":0,"value":35,"_color":"#141fa9","tween":"quadEaseInOut"},{"time":7.7,"value":710,"_color":"#e7d7ed","tween":"quadEaseIn"},{"time":10.8,"value":700,"_color":"#b203bb"}],"_value":35,"_color":"#19c13b"},{"name":"x","values":[{"time":0,"value":20,"_color":"#581b3c","tween":"quadEaseInOut"},{"time":12,"value":50,"_color":"#14840a"}],"_value":20,"_color":"#3c33de"},{"name":"y","values":[{"time":0,"value":35,"_color":"#676b8e","tween":"quadEaseInOut"},{"time":5.9,"value":50,"_color":"#6afeba"}],"_value":35,"_color":"#cfaef0"}],"name":"demowork"});
+
+  function audioinit() {
+    if (window.audioInit) return;
+    console.log("audio inited");
+    window.audioInit = true;
+  }
+
+  function init() {
+    $('.page').each(function() {
+      pages.push($(this)[0]);
+    })
+
+    $('.svg-wrapper').each(function() {
+      var wrapper = $(this);
+      var svg = wrapper.find('svg');
+      var text = svg.find('text');
+      var bbox = text.get(0).getBBox();
+
+      textarray.push(text.text());  
+/*
+      var rando = Math.round(Math.random() * textarray.length);
+      var chance = Math.random();
+//      if (chance > 0.98) text.text(textarray[rando]);
+*/
+        svg.get(0).setAttribute('viewBox', 
+                                [bbox.x,
+                                 bbox.y,
+                                 bbox.width,
+                                 bbox.height].join(' '));
+        wrapper.css('padding-top', (bbox.height/bbox.width)*80+'%');
+    });
+
+    document.getElementById('audio').load();
+    document.getElementById('audio').oncanplaythrough = audioinit;
+
+    animate();
+  }
+
+  function style(element, target) {
+    element.style.opacity = target.opacity;
+    console.log("rotation:" + target.rotate);
+    element.style.left = target.x + "%";
+    element.style.top = target.y + "%";
+    element.style.transform = "rotate(" + (target.rotate) + "deg)"; 
+  } 
+
+  function animate() {
+
+    var pageindex = Math.trunc(anim.index);
+
+    style(pages[pageindex],anim);
+
+    requestAnimationFrame(animate);
+
+  }
+
+  window.onload = init;
+
+
+</script>
+<div class = "page" id="page1">
+  <div class="wrapper">
+    <div class="svg-wrapper"><svg><text class="upper sans">You have to</text></svg></div>
+      <div class="svg-wrapper"><svg><text class="upper sans bold">no</text></svg></div>
+      <div class="svg-wrapper"><svg><text class="upper sans">to a lot of</text></svg></div>
+      <div class="svg-wrapper"><svg><text class="upper serif">good things</text></svg></div>
+      <div class="svg-wrapper"><svg><text class="upper sans">in order to be able to</text></svg></div>
+      <div class="svg-wrapper"><svg><text class="upper sans bold">say yes</text></svg></div>
+      <div class="svg-wrapper"><svg><text class="upper sans">to a lot of</text></svg></div>
+      <div class="svg-wrapper"><svg><text class="upper serif">great things</text></svg></div>
+  </div>
+</div>
+
+<div class = "page" id="page2">
+  <div class="wrapper">
+    <div class="svg-wrapper"><svg><text class="upper sans">You have to</text></svg></div>
+      <div class="svg-wrapper"><svg><text class="upper sans bold">say YES</text></svg></div>
+      <div class="svg-wrapper"><svg><text class="upper sans">to the dress</text></svg></div>
+      <div class="svg-wrapper"><svg><text class="upper serif">and say</text></svg></div>
+      <div class="svg-wrapper"><svg><text class="upper sans">negative things about</text></svg></div>
+      <div class="svg-wrapper"><svg><text class="upper sans bold">haters</text></svg></div>
+      <div class="svg-wrapper"><svg><text class="upper sans">for their own</text></svg></div>
+      <div class="svg-wrapper"><svg><text class="upper serif">benefit.</text></svg></div>
+  </div>
+</div>
+
+<audio id = "audio">
+  <source src="music.ogg" type="audio/ogg">
+  <source src="music.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio> 
+</div>
+</div>
+</body>
+
+
+</html>
