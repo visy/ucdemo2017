@@ -23,12 +23,12 @@
     max-height: 100%;
   }
   svg text {
-    text-shadow: 1px 1px 1px black;
+    text-shadow: 2px 2px 3px black;
     fill: #eee;
   }
   svg .sans {
     font-family: 'Raleway';
-    font-weight: 200;
+    font-weight: 300;
   }
   svg .serif {
     font-family: 'Playfair Display SC';
@@ -46,9 +46,9 @@
     top: 50%; left: 50%;
     transform: translate(-50%,-50%);  
     margin: auto auto;
-    width: 300px;
+    width: 150px;
     border: 8px solid #222;
-    padding: 20px;
+    padding: 40px;
   }
 .wrapper::before {
   position: absolute;
@@ -223,7 +223,7 @@ background-blend-mode: screen;
                                  bbox.y,
                                  bbox.width,
                                  bbox.height].join(' '));
-        wrapper.css('padding-top', (bbox.height/bbox.width)*80+'%');
+        wrapper.css('padding-top', (bbox.height/bbox.width)*100+'%');
     });
 
     document.getElementById('audio').load();
@@ -256,7 +256,7 @@ background-blend-mode: screen;
 
 
 </script>
-<div class = "page" id="page1" contenteditable="true">
+<div class = "page" id="page1">
   <div class="wrapper">
       <div class="svg-wrapper"><svg><text class="upper sans">PROGRAMME<br></text></svg></div>
       <div class="svg-wrapper"><svg><text class="upper sans bold">TONIGHT<br><br></text></svg></div>
@@ -269,7 +269,7 @@ background-blend-mode: screen;
     </div>
 </div>
 
-<div class = "page" id="page2" contenteditable="true">
+<div class = "page" id="page2">
   <div class="wrapper">
 
       <div class="svg-wrapper"><svg><text class="upper sans">ONE LIFE <br></text></svg></div>
