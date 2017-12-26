@@ -373,7 +373,7 @@ function Timeliner(target) {
 		currentTimeStore.value = value;
 
 		if (!seek) { console.log("audio time to: " + value);
-document.getElementById("audio").currentTime = value; seek = true; }
+		document.getElementById("audio").currentTime = value; seek = true; }
 
 		if (start_play) start_play = performance.now() - value * 1000;
 		repaintAll();
@@ -410,8 +410,14 @@ document.getElementById("audio").currentTime = value; seek = true; }
 		Paint Routines
 	*/
 
+	var finish = false;
+
 	function paint() {
+		if (finish) return;
 		requestAnimationFrame(paint);
+		var value = (performance.now() - start_play) / 1000;
+		if (value > 80 && !finish) {finish = true; pausePlaying();  document.body.innerHTML = ""; }
+
 
 		if (start_play) {
 			var t = (performance.now() - start_play) / 1000;

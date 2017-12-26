@@ -40,7 +40,25 @@
   svg .upper {
     text-transform: uppercase;
   }
-  .wrapper {
+  .wrappernoborder {
+    background: inherit;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);  
+    margin: auto auto;
+    width: 550px;
+    padding: 40px;
+  }
+.wrappernoborder::before {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  content: "";
+}
+  .wrapperborder {
     background: inherit;
     position: absolute;
     top: 50%; left: 50%;
@@ -50,7 +68,7 @@
     border: 8px solid #222;
     padding: 40px;
   }
-.wrapper::before {
+.wrapperborder::before {
   position: absolute;
   top: 0%;
   left: 0%;
@@ -60,7 +78,7 @@
   content: "";
 }
 
-.page:nth-of-type(odd) {
+.page:nth-of-type(1) {
 background: 
 radial-gradient(circle at 50% 59%, #D2CAAB 3%, #364E27 4%, #364E27 11%, rgba(54,78,39,0) 12%, rgba(54,78,39,0)) 50px 0,
 radial-gradient(circle at 50% 41%, #364E27 3%, #D2CAAB 4%, #D2CAAB 11%, rgba(210,202,171,0) 12%, rgba(210,202,171,0)) 50px 0,
@@ -75,7 +93,7 @@ background-size:100px 100px;
   background-blend-mode: screen;
 }
 
-.page:nth-of-type(even) {
+.page:nth-of-type(2) {
 background:
 linear-gradient(45deg, #92baac 45px, transparent 45px)64px 64px,
 linear-gradient(45deg, #92baac 45px, transparent 45px,transparent 91px, #e1ebbd 91px, #e1ebbd 135px, transparent 135px),
@@ -83,6 +101,11 @@ linear-gradient(-45deg, #92baac 23px, transparent 23px, transparent 68px,#92baac
 background-color:#e1ebbd;
 background-size: 128px 128px;
 background-blend-mode: screen;
+}
+
+.page:nth-of-type(3) {
+background: clear;
+border:0;
 }
 
   video {
@@ -148,10 +171,10 @@ background-blend-mode: screen;
   }
 
   .page:nth-of-type(1) {
-  animation-delay: 5s;
   }
   .page:nth-of-type(2) {
-  animation-delay: 10s;
+  }
+  .page:nth-of-type(3) {
   }
 
 
@@ -163,7 +186,7 @@ background-blend-mode: screen;
     -o-transition: opacity .2s ease-out;
   }
   timeliner {
-    opacity:0.05;
+    opacity:0.00;
     transition: opacity .2s ease-out;
     -moz-transition: opacity .2s ease-out;
     -webkit-transition: opacity .2s ease-out;
@@ -188,6 +211,18 @@ background-blend-mode: screen;
 <source src="video3.mp4" type="video/mp4">
 </video>
 
+<video  id="bgvid4" playsinline autoplay muted loop>
+<source src="video4.mp4" type="video/mp4">
+</video>
+
+<video  id="bgvid5" playsinline autoplay muted loop>
+<source src="video5.mp4" type="video/mp4">
+</video>
+
+<video  id="bgvid6" playsinline autoplay muted loop>
+<source src="angel.mp4" type="video/mp4">
+</video>
+
 <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,700|Raleway:400,100,200,300,500,600,700,800,900|Playfair+Display+SC:400italic,700italic,400,700,900" rel="stylesheet" type="text/css">
 
 <script>
@@ -204,7 +239,10 @@ background-blend-mode: screen;
     y: 50,
     video1_a: 0.0,
     video2_a: 0.0,
-    video3_a: 0.0
+    video3_a: 0.0,
+    video4_a: 0.0,
+    video5_a: 0.0,
+    video6_a: 0.0
   };
 
   // initialize timeliner
@@ -218,9 +256,11 @@ background-blend-mode: screen;
   timeliner.addLayer('video1_a');
   timeliner.addLayer('video2_a');
   timeliner.addLayer('video3_a');
+  timeliner.addLayer('video4_a');
+  timeliner.addLayer('video5_a');
+  timeliner.addLayer('video6_a');
 */
-  timeliner.load({"version":"1.5.0","modified":"Sun Dec 24 2017 14:19:24 GMT+0100 (CET)","title":"Untitled","ui":{"currentTime":0,"totalTime":40,"scrollTime":17.99775028121485,"timeScale":56.23413251903491},"layers":[{"name":"opacity","values":[{"time":1.4,"value":0,"_color":"#83a477","tween":"linear"},{"time":9.107359661284933,"value":0.99,"_color":"#c86e4d"},{"time":9.107359661284933,"value":0.99,"_color":"#51af9","tween":"linear"},{"time":10.9,"value":0,"_color":"#1e5fe"},{"time":12.4,"value":0,"_color":"#df4166","tween":"linear"},{"time":14.463323291393467,"value":0.99,"_color":"#7ed009"},{"time":18.543323291393467,"value":0.99,"_color":"#4c9e7f","tween":"linear"},{"time":20.16502923976608,"value":0,"_color":"#a18ce"}],"_value":0,"_color":"#91a65a"},{"name":"index","values":[{"time":0,"value":0,"_color":"#3ccbbc"},{"time":12.3,"value":1,"_color":"#72bf5a"}],"_value":0,"_color":"#2563ab"},{"name":"rotate","values":[{"time":0,"value":35,"_color":"#141fa9","tween":"quadEaseInOut"},{"time":7.7,"value":710,"_color":"#e7d7ed","tween":"quadEaseIn"},{"time":10.8,"value":700,"_color":"#b203bb"},{"time":12.3,"value":0,"_color":"#b4984b"}],"_value":35,"_color":"#19c13b"},{"name":"x","values":[{"time":0,"value":20,"_color":"#581b3c","tween":"quadEaseInOut"},{"time":12,"value":50,"_color":"#14840a"}],"_value":20,"_color":"#3c33de"},{"name":"y","values":[{"time":0,"value":35,"_color":"#676b8e","tween":"quadEaseInOut"},{"time":5.9,"value":50,"_color":"#6afeba"}],"_value":35,"_color":"#cfaef0"},{"name":null,"values":[],"_value":0,"_color":"#8d6b28"},{"name":"scale","values":[{"time":0,"value":1.2,"_color":"#c4b445"},{"time":12.1,"value":1,"_color":"#9ae5b3","tween":"linear"},{"time":20.871032557111302,"value":1.5,"_color":"#9d75e1"}],"_value":1.2,"_color":"#64c08a"},{"name":"video1_a","values":[{"time":0,"value":0.5,"_color":"#84136d","tween":"linear"},{"time":2.4665765749313358,"value":0,"_color":"#1f2587"}],"_value":0.5,"_color":"#5364dc"},{"name":"video2_a","values":[{"time":0,"value":0,"_color":"#5c6d7f"},{"time":3.984469851812158,"value":0,"_color":"#3bb207","tween":"linear"},{"time":11.57393623621627,"value":0.5,"_color":"#9f5c69"},{"time":16.507089386078942,"value":0.5,"_color":"#70531f","tween":"linear"},{"time":22.958135812822434,"value":0,"_color":"#a477b6"}],"_value":0,"_color":"#bebfc0"},{"name":"video3_a","values":[{"time":0,"value":0,"_color":"#860c13"},{"time":21.25050587633151,"value":0,"_color":"#16944d","tween":"linear"},{"time":30.140896496261426,"value":1,"_color":"#b6d9d1"}],"_value":0,"_color":"#e235c0"}],"name":"demowork"});
-
+  timeliner.load({"version":"1.5.0","modified":"Sun Dec 24 2017 14:19:24 GMT+0100 (CET)","title":"Untitled","ui":{"currentTime":0,"totalTime":80,"scrollTime":0,"timeScale":5.623413251903491},"layers":[{"name":"opacity","values":[{"time":1.4,"value":0,"_color":"#83a477","tween":"linear"},{"time":9.107359661284933,"value":0.99,"_color":"#c86e4d"},{"time":9.107359661284933,"value":0.99,"_color":"#51af9","tween":"linear"},{"time":10.9,"value":0,"_color":"#1e5fe"},{"time":12.4,"value":0,"_color":"#df4166","tween":"linear"},{"time":14.463323291393467,"value":0.99,"_color":"#7ed009"},{"time":18.543323291393467,"value":0.99,"_color":"#4c9e7f","tween":"linear"},{"time":20.16502923976608,"value":0,"_color":"#a18ce"},{"time":27.74115879660719,"value":0,"_color":"#897741","tween":"linear"},{"time":33.07599702672396,"value":1,"_color":"#a71993","tween":"linear"},{"time":38.41083525684073,"value":0,"_color":"#163903"}],"_value":0,"_color":"#91a65a"},{"name":"index","values":[{"time":0,"value":0,"_color":"#3ccbbc"},{"time":12.3,"value":1,"_color":"#72bf5a"},{"time":27.74115879660719,"value":2,"_color":"#9be0f"}],"_value":0,"_color":"#2563ab"},{"name":"rotate","values":[{"time":0,"value":35,"_color":"#141fa9","tween":"quadEaseInOut"},{"time":7.7,"value":710,"_color":"#e7d7ed","tween":"quadEaseIn"},{"time":10.8,"value":700,"_color":"#b203bb"},{"time":12.3,"value":0,"_color":"#b4984b"}],"_value":35,"_color":"#19c13b"},{"name":"x","values":[{"time":0,"value":20,"_color":"#581b3c","tween":"quadEaseInOut"},{"time":12,"value":50,"_color":"#14840a"}],"_value":20,"_color":"#3c33de"},{"name":"y","values":[{"time":0,"value":35,"_color":"#676b8e","tween":"quadEaseInOut"},{"time":5.9,"value":50,"_color":"#6afeba"}],"_value":35,"_color":"#cfaef0"},{"name":null,"values":[],"_value":0,"_color":"#8d6b28"},{"name":"scale","values":[{"time":0,"value":1.2,"_color":"#c4b445"},{"time":12.1,"value":1,"_color":"#9ae5b3","tween":"linear"},{"time":20.871032557111302,"value":1.5,"_color":"#9d75e1"}],"_value":1.2,"_color":"#64c08a"},{"name":"video1_a","values":[{"time":0,"value":0.5,"_color":"#84136d","tween":"linear"},{"time":2.4665765749313358,"value":0,"_color":"#1f2587"},{"time":46.94657642502756,"value":0,"_color":"#1346f4","tween":"linear"},{"time":57.61625288526109,"value":0.5,"_color":"#dd9963","tween":"linear"},{"time":66.15199405344792,"value":0,"_color":"#34e8ec"}],"_value":0.5,"_color":"#5364dc"},{"name":"video2_a","values":[{"time":0,"value":0,"_color":"#5c6d7f"},{"time":3.984469851812158,"value":0,"_color":"#3bb207","tween":"linear"},{"time":11.57393623621627,"value":0.5,"_color":"#9f5c69"},{"time":16.507089386078942,"value":0.5,"_color":"#70531f","tween":"linear"},{"time":22.958135812822434,"value":0,"_color":"#a477b6"}],"_value":0,"_color":"#bebfc0"},{"name":"video3_a","values":[{"time":0,"value":0,"_color":"#860c13"},{"time":21.25050587633151,"value":0,"_color":"#16944d","tween":"linear"},{"time":30.140896496261426,"value":1,"_color":"#b6d9d1","tween":"linear"},{"time":41.61173819491079,"value":0,"_color":"#49c121"}],"_value":0,"_color":"#e235c0"},{"name":"video4_a","values":[{"time":33.29785169930608,"value":0,"_color":"#42d235","tween":"linear"},{"time":38.73938669402518,"value":0.99,"_color":"#b0e83","tween":"linear"},{"time":44.074224924141944,"value":0,"_color":"#24dc96"}],"_value":0,"_color":"#4c3e90"},{"name":"video5_a","values":[{"time":37.77911581260416,"value":0,"_color":"#c717b1","tween":"linear"},{"time":45.888069922381646,"value":1,"_color":"#b84a64"},{"time":46.37148904800165,"value":1,"_color":"#87a6b5","tween":"linear"},{"time":55.2,"value":0,"_color":"#f60ce2"}],"_value":0,"_color":"#11f723"},{"name":"video6_a","values":[{"time":48.01354407105091,"value":0,"_color":"#c275c4","tween":"linear"},{"time":74.68773522163475,"value":0.9,"_color":"#f28bcd"}],"_value":0,"_color":"#f6f75"}],"name":"demowork"});
 
 
   function audioinit() {
@@ -284,6 +324,9 @@ background-blend-mode: screen;
     videos[0].style.opacity = anim.video1_a;
     videos[1].style.opacity = anim.video2_a;
     videos[2].style.opacity = anim.video3_a;
+    videos[3].style.opacity = anim.video4_a;
+    videos[4].style.opacity = anim.video5_a;
+    videos[5].style.opacity = anim.video6_a;
 
     requestAnimationFrame(animate);
 
@@ -294,7 +337,7 @@ background-blend-mode: screen;
 
 </script>
 <div class = "page" id="page1">
-  <div class="wrapper">
+  <div class="wrapperborder">
       <div class="svg-wrapper"><svg><text class="upper sans">PROGRAMME<br></text></svg></div>
       <div class="svg-wrapper"><svg><text class="upper sans bold">TONIGHT<br><br></text></svg></div>
       <div class="svg-wrapper"><svg><text class="upper sans">IT WILL ALL&nbsp; <br></text></svg></div>
@@ -307,7 +350,7 @@ background-blend-mode: screen;
 </div>
 
 <div class = "page" id="page2">
-  <div class="wrapper">
+  <div class="wrapperborder">
 
       <div class="svg-wrapper"><svg><text class="upper sans">ONE LIFE <br></text></svg></div>
       <div class="svg-wrapper"><svg><text class="upper sans bold">ONE NIGHT<br></text></svg></div>
@@ -319,6 +362,15 @@ background-blend-mode: screen;
       <div class="svg-wrapper"><svg><text class="upper serif">ETERNITY.</text></svg></div>
     </div>
 </div>
+
+<div class = "page" id="page3">
+  <div class="wrappernoborder">
+
+      <div class="svg-wrapper"><svg><text class="upper sans">Quadtrip<br></text></svg></div>
+      <div class="svg-wrapper"><svg><text class="upper sans bold">ONE NIGHT ONLY<br></text></svg></div>
+    </div>
+</div>
+
 
 <audio id = "audio">
   <source src="music.ogg" type="audio/ogg">
