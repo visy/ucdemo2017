@@ -85,6 +85,15 @@ background-size: 128px 128px;
 background-blend-mode: screen;
 }
 
+  video {
+    position:absolute;
+  object-fit: cover;
+    padding:0;
+    width:100%;
+    height:100%;
+    opacity:0.3;
+  }
+
 
   .background {
     background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iNjAiIGhlaWdodD0iMzAiPgo8ZGVmcz4KPHJlY3QgaWQ9InIiIHdpZHRoPSIzMCIgaGVpZ2h0PSIxNSIgZmlsbD0iI2JiMDg1ZiIgc3Ryb2tlLXdpZHRoPSIyLjUiIHN0cm9rZT0iIzdhMDU0ZCI+PC9yZWN0Pgo8ZyBpZD0icCI+Cjx1c2UgeGxpbms6aHJlZj0iI3IiPjwvdXNlPgo8dXNlIHk9IjE1IiB4bGluazpocmVmPSIjciI+PC91c2U+Cjx1c2UgeT0iMzAiIHhsaW5rOmhyZWY9IiNyIj48L3VzZT4KPHVzZSB5PSI0NSIgeGxpbms6aHJlZj0iI3IiPjwvdXNlPgo8L2c+CjwvZGVmcz4KPHVzZSB4bGluazpocmVmPSIjcCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAtMjUpIHNrZXdZKDQwKSI+PC91c2U+Cjx1c2UgeGxpbms6aHJlZj0iI3AiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMwIDApIHNrZXdZKC00MCkiPjwvdXNlPgo8L3N2Zz4=");
@@ -107,7 +116,7 @@ background-blend-mode: screen;
     animation-name: fadein;
     animation-timing-function: ease-in-out;
     animation-iteration-count: 1;
-    animation-duration: 0.1s;
+    animation-duration: 5s;
     background-color: black;
     width: 100%;
     height: 100%;
@@ -154,7 +163,7 @@ background-blend-mode: screen;
     -o-transition: opacity .2s ease-out;
   }
   timeliner {
-    opacity:0.5;
+    opacity:0.05;
     transition: opacity .2s ease-out;
     -moz-transition: opacity .2s ease-out;
     -webkit-transition: opacity .2s ease-out;
@@ -167,12 +176,24 @@ background-blend-mode: screen;
 <body>
 <div class = "cover">
 <div class = "background">
+<video id="bgvid1" playsinline autoplay muted loop>
+<source src="video1.mp4" type="video/mp4">
+</video>
+
+<video  id="bgvid2" playsinline autoplay muted loop>
+<source src="video2.mp4" type="video/mp4">
+</video>
+
+<video  id="bgvid3" playsinline autoplay muted loop>
+<source src="video3.mp4" type="video/mp4">
+</video>
 
 <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,700|Raleway:400,100,200,300,500,600,700,800,900|Playfair+Display+SC:400italic,700italic,400,700,900" rel="stylesheet" type="text/css">
 
 <script>
   var textarray = [];
   var pages = []
+  var videos = []
   var textInited = false;
 
   var anim = {
@@ -180,7 +201,10 @@ background-blend-mode: screen;
     index: 0,
     rotate: 0,
     x: 50,
-    y: 50
+    y: 50,
+    video1_a: 0.0,
+    video2_a: 0.0,
+    video3_a: 0.0
   };
 
   // initialize timeliner
@@ -191,8 +215,13 @@ background-blend-mode: screen;
   timeliner.addLayer('rotate');
   timeliner.addLayer('x');
   timeliner.addLayer('y');
+  timeliner.addLayer('video1_a');
+  timeliner.addLayer('video2_a');
+  timeliner.addLayer('video3_a');
 */
-  timeliner.load({"version":"1.5.0","modified":"Sun Dec 24 2017 14:19:24 GMT+0100 (CET)","title":"Untitled","ui":{"currentTime":0,"totalTime":40,"scrollTime":0,"timeScale":31.622776601683793},"layers":[{"name":"opacity","values":[{"time":1.4,"value":0,"_color":"#83a477","tween":"linear"},{"time":9.107359661284933,"value":0.99,"_color":"#c86e4d"},{"time":9.107359661284933,"value":0.99,"_color":"#51af9","tween":"linear"},{"time":10.9,"value":0,"_color":"#1e5fe"},{"time":12.4,"value":0,"_color":"#df4166","tween":"linear"},{"time":14.463323291393467,"value":0.99,"_color":"#7ed009"},{"time":18.543323291393467,"value":0.99,"_color":"#4c9e7f","tween":"linear"},{"time":20.16502923976608,"value":0,"_color":"#a18ce"}],"_value":0,"_color":"#91a65a"},{"name":"index","values":[{"time":0,"value":0,"_color":"#3ccbbc"},{"time":12.3,"value":1,"_color":"#72bf5a"}],"_value":0,"_color":"#2563ab"},{"name":"rotate","values":[{"time":0,"value":35,"_color":"#141fa9","tween":"quadEaseInOut"},{"time":7.7,"value":710,"_color":"#e7d7ed","tween":"quadEaseIn"},{"time":10.8,"value":700,"_color":"#b203bb"},{"time":12.3,"value":0,"_color":"#b4984b"}],"_value":35,"_color":"#19c13b"},{"name":"x","values":[{"time":0,"value":20,"_color":"#581b3c","tween":"quadEaseInOut"},{"time":12,"value":50,"_color":"#14840a"}],"_value":20,"_color":"#3c33de"},{"name":"y","values":[{"time":0,"value":35,"_color":"#676b8e","tween":"quadEaseInOut"},{"time":5.9,"value":50,"_color":"#6afeba"}],"_value":35,"_color":"#cfaef0"},{"name":null,"values":[],"_value":0,"_color":"#8d6b28"},{"name":"scale","values":[{"time":0,"value":1.2,"_color":"#c4b445"},{"time":12.1,"value":1,"_color":"#9ae5b3","tween":"linear"},{"time":20.871032557111302,"value":1.5,"_color":"#9d75e1"}],"_value":1.2,"_color":"#64c08a"}],"name":"demowork"});
+  timeliner.load({"version":"1.5.0","modified":"Sun Dec 24 2017 14:19:24 GMT+0100 (CET)","title":"Untitled","ui":{"currentTime":0,"totalTime":40,"scrollTime":17.99775028121485,"timeScale":56.23413251903491},"layers":[{"name":"opacity","values":[{"time":1.4,"value":0,"_color":"#83a477","tween":"linear"},{"time":9.107359661284933,"value":0.99,"_color":"#c86e4d"},{"time":9.107359661284933,"value":0.99,"_color":"#51af9","tween":"linear"},{"time":10.9,"value":0,"_color":"#1e5fe"},{"time":12.4,"value":0,"_color":"#df4166","tween":"linear"},{"time":14.463323291393467,"value":0.99,"_color":"#7ed009"},{"time":18.543323291393467,"value":0.99,"_color":"#4c9e7f","tween":"linear"},{"time":20.16502923976608,"value":0,"_color":"#a18ce"}],"_value":0,"_color":"#91a65a"},{"name":"index","values":[{"time":0,"value":0,"_color":"#3ccbbc"},{"time":12.3,"value":1,"_color":"#72bf5a"}],"_value":0,"_color":"#2563ab"},{"name":"rotate","values":[{"time":0,"value":35,"_color":"#141fa9","tween":"quadEaseInOut"},{"time":7.7,"value":710,"_color":"#e7d7ed","tween":"quadEaseIn"},{"time":10.8,"value":700,"_color":"#b203bb"},{"time":12.3,"value":0,"_color":"#b4984b"}],"_value":35,"_color":"#19c13b"},{"name":"x","values":[{"time":0,"value":20,"_color":"#581b3c","tween":"quadEaseInOut"},{"time":12,"value":50,"_color":"#14840a"}],"_value":20,"_color":"#3c33de"},{"name":"y","values":[{"time":0,"value":35,"_color":"#676b8e","tween":"quadEaseInOut"},{"time":5.9,"value":50,"_color":"#6afeba"}],"_value":35,"_color":"#cfaef0"},{"name":null,"values":[],"_value":0,"_color":"#8d6b28"},{"name":"scale","values":[{"time":0,"value":1.2,"_color":"#c4b445"},{"time":12.1,"value":1,"_color":"#9ae5b3","tween":"linear"},{"time":20.871032557111302,"value":1.5,"_color":"#9d75e1"}],"_value":1.2,"_color":"#64c08a"},{"name":"video1_a","values":[{"time":0,"value":0.5,"_color":"#84136d","tween":"linear"},{"time":2.4665765749313358,"value":0,"_color":"#1f2587"}],"_value":0.5,"_color":"#5364dc"},{"name":"video2_a","values":[{"time":0,"value":0,"_color":"#5c6d7f"},{"time":3.984469851812158,"value":0,"_color":"#3bb207","tween":"linear"},{"time":11.57393623621627,"value":0.5,"_color":"#9f5c69"},{"time":16.507089386078942,"value":0.5,"_color":"#70531f","tween":"linear"},{"time":22.958135812822434,"value":0,"_color":"#a477b6"}],"_value":0,"_color":"#bebfc0"},{"name":"video3_a","values":[{"time":0,"value":0,"_color":"#860c13"},{"time":21.25050587633151,"value":0,"_color":"#16944d","tween":"linear"},{"time":30.140896496261426,"value":1,"_color":"#b6d9d1"}],"_value":0,"_color":"#e235c0"}],"name":"demowork"});
+
+
 
   function audioinit() {
     if (window.audioInit) return;
@@ -204,6 +233,11 @@ background-blend-mode: screen;
   function init() {
     $('.page').each(function() {
       pages.push($(this)[0]);
+    })
+
+    $('video').each(function() {
+      $(this)[0].style.opacity = 0.0;
+      videos.push($(this)[0]);
     })
 
     $('.svg-wrapper').each(function() {
@@ -247,6 +281,9 @@ background-blend-mode: screen;
     var pageindex = Math.trunc(anim.index);
 
     style(pages[pageindex],anim);
+    videos[0].style.opacity = anim.video1_a;
+    videos[1].style.opacity = anim.video2_a;
+    videos[2].style.opacity = anim.video3_a;
 
     requestAnimationFrame(animate);
 
